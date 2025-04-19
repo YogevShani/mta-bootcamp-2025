@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTA Computer Science Bootcamp 2025</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">	
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0099A8;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        img {
+            width: 150px;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        a, button {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        a:hover, button:hover {
+            text-decoration: underline;
+        }
+        #key-display {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            white-space: pre-wrap;
+            display: none;
+        }
+    </style>
+    <script>
+        function getOpenAIKey_() {
+            var password = prompt("Please enter the password:");
+            if (password !== null) {
+                fetch('https://7nbukne4nbzpost7hpde22de3i0dxjpj.lambda-url.us-east-1.on.aws/?password=' + encodeURIComponent(password))
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('key-display').textContent = data.key;
+                        document.getElementById('key-display').style.display = 'block';
+                    })
+                    .catch(error => {
+                        document.getElementById('key-display').textContent = 'Error fetching key';
+                        document.getElementById('key-display').style.display = 'block';
+                    });
+            }
+        }
+
+	function getOpenAIKey() {
+            var password = prompt("Please enter the password:");
+            if (password !== null) {
+                fetch('https://7nbukne4nbzpost7hpde22de3i0dxjpj.lambda-url.us-east-1.on.aws/?password=' + encodeURIComponent(password))
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('key-display').textContent = data.key;
+                        document.getElementById('key-display').style.display = 'block';
+                        navigator.clipboard.writeText(data.key).then(function() {
+                            alert('Key copied to clipboard!');
+                        }, function(err) {
+                            alert('Failed to copy key to clipboard.');
+                        });
+                    })
+                    .catch(error => {
+                        document.getElementById('key-display').textContent = 'Error fetching key';
+                        document.getElementById('key-display').style.display = 'block';
+                    });
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="MTA Computer Science Logo">
+        <h1>MTA Computer Science Bootcamp 2025 - Open AI APIs, Cloud & AWS</h1>
+    </header>
+
+    <section>
+        <h2>Resources</h2>
+        <ul>
+            <li><a href="Cloud-Concepts-And-AWS.pdf" target="_blank">Cloud Concepts & AWS</a></li>
+            <li><a href="Google Colab.pdf" target="_blank">Google Colab</a></li>
+            <li><a href="OpenAI APIs 101.pdf" target="_blank">Open AI API</a></li>
+        </ul>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="awsacademy.png" alt="AWS Academy Learner Lab" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Prerequisite: <a href="https://www.awsacademy.com/vforcesite/LMS_Login" target="_blank">AWS Academy Learner Lab</a></h2>
+            <p>Login to AWS Academy Learner Lab.</p>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="colab.png" alt="Google Colab" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Prerequisite: <a href="https://colab.research.google.com/github/YogevShani/mta-retreat/blob/main/ColabTestPage.ipynb" target="_blank">ColabTestPage</a></h2>
+            <p>Login to Google Colab and execute python code.</p>
+        </div>
+    </section>
+
+
+    <section style="display: flex; align-items: center;">
+        <img src="open-ai-key.png" alt="Open AI Key" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Prerequisite: Retrieve Open AI Key</h2>
+            <p>Please get an open ai key to continue this lab.</p>
+ 
+            <p>Call AWS Lambda function to get Open AI Key.</p>
+            <button onclick="getOpenAIKey()">Get KEY</button>
+            <div id="key-display"></div>
+
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="aws-lambda.png" alt="AWS Lambda" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Demo 1: <a href="Lab - AWS Lambda.pdf" target="_blank">AWS Lambda, Python based</a></h2>
+            <p>Write and deploy AWS Lambda function.</p>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="aws-amplify.png" alt="AWS Amplify" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Demo 2: <a href="Lab - Host a static website using AWS Amplify.pdf" target="_blank">Host a web page</a></h2>
+            <p>Host a static website using AWS Amplify.</p>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="DynamoDB.png" alt="DynamoDB" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Demo 3: <a href="Lab - DynamoDB.pdf" target="_blank">DynamoDB</a></h2>
+            <p>Create non SQL DB using DynamoDB.</p>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="open-ai-api.png" alt="Open AI API" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Lab 1: <a href="https://colab.research.google.com/github/YogevShani/mta-retreat/blob/main/open_ai_chat.ipynb" target="_blank">open_ai_chat</a></h2>
+            <p>Basic Python Chat using Open AI Chat Completion API.</p>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="open-ai-api.png" alt="Open AI API" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Lab 2: <a href="https://colab.research.google.com/github/YogevShani/mta-retreat/blob/main/open_ai_pizza_chat_functions.ipynb" target="_blank">open_ai_pizza_chat_functions</a></h2>
+            <p>Python Pizza Chat using Function calling.</p>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="chat.png" alt="Open AI API" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Project: <a href="Lab - Open AI Lambda Function - POST.pdf" target="_blank">Chat Bot</a></h2>
+            <p>ChatBot development using OPEN AI API & AWS Services - AWS Lambda, DynamoDB & AWS Amplify.</p>
+	    <a href="https://staging.diwtzlr3ict3z.amplifyapp.com/" target="_blank">Sample Chat Bot</a>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="amazon-cognito.jpg" alt="Cognito" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Demo 4: <a href="Lab - cognito.pdf" target="_blank">AWS Cognito</a></h2>
+            <p>Create user managment with AWS Cognito.</p>
+        </div>
+    </section>
+
+    <section style="display: flex; align-items: center;">
+        <img src="s3.png" alt="S3" style="width:100px; height:auto; margin-right:20px;">
+        <div>
+            <h2>Demo 5: <a href="Lab - S3.pdf" target="_blank">Amazon S3</a></h2>
+            <p>Amazon Simple Storage Service.</p>
+        </div>
+    </section>
+
+</body>
+</html>
